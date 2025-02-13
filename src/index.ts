@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 
 app.use(cors({
-  origin: 'https://accredian-frontend-task-9glo3v9iz-gaurav-prakashs-projects.vercel.app/',
+  origin: ['https://accredian-frontend-task-9glo3v9iz-gaurav-prakashs-projects.vercel.app/'],
    methods: ["POST", "GET"],
   credentials: true
 }));
