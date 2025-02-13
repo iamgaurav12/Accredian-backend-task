@@ -11,17 +11,15 @@ export const createReferral = async (req: Request, res: Response, next: NextFunc
 
   const { name, email, referredBy } = req.body;
 
-  // Validate required fields
   if (!name || !email || !referredBy) {
     console.warn("❌ Missing fields:", { name, email, referredBy });
-    return next(errorHandler(400, "Missing fields"));
+    return next(errorHandler(400, "Missing fields"));  // ✅ Fix: Pass error to `next()`
   }
 
-  // Validate email format
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
     console.warn("❌ Invalid email format:", email);
-    return next(errorHandler(400, "Invalid email"));
+    return next(errorHandler(400, "Invalid email"));  // ✅ Fix: Pass error to `next()`
   }
 
   try {
@@ -30,7 +28,7 @@ export const createReferral = async (req: Request, res: Response, next: NextFunc
 
     if (existingReferral) {
       console.warn("⚠️ Email already exists in DB:", email);
-      return next(errorHandler(409, "Email already exists"));
+      return next(errorHandler(409, "Email already exists"));  // ✅ Fix
     }
 
     console.log("🛠 Creating new referral...");
@@ -47,9 +45,10 @@ export const createReferral = async (req: Request, res: Response, next: NextFunc
     console.error("❌ Error in createReferral:", error);
 
     if (error.code === 'P2002' && error.meta?.target.includes('email')) {
-      return next(errorHandler(409, "Email already exists"));
+      return next(errorHandler(409, "Email already exists"));  // ✅ Fix
     } else {
-      return next(errorHandler(500, "An unexpected error occurred"));
+      return next(errorHandler(500, "An unexpected error occurred"));  // ✅ Fix
     }
   }
 };
+
