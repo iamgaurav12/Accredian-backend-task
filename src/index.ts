@@ -7,7 +7,13 @@ import referralRoutes from './routes/referral.route';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+// Allow only the Vercel frontend to access your backend
+const corsOptions = {
+  origin: "https://accredian-frontend-task-pink.vercel.app", // Replace with your actual Vercel URL
+  methods: ["GET", "POST"], // You can add other HTTP methods if needed
+};
+
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 3000;
 
