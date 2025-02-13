@@ -12,9 +12,10 @@ app.use(cors({
   origin: [
     'https://accredian-frontend-task-pink.vercel.app',
     'https://accredian-frontend-task-9glo3v9iz-gaurav-prakashs-projects.vercel.app'
-  ]
+  ],
+   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true
 }));
-
 
 
 const PORT = process.env.PORT || 3000;
