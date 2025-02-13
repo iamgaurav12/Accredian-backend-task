@@ -18,6 +18,9 @@ app.use(cors(corsOptions));
 const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
+app.get("/", (req, res) => {
+  res.send("Backend is running!");
+});
 
 app.use('/api/referral', referralRoutes);
 
