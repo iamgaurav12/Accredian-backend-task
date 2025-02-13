@@ -25,7 +25,6 @@ export const createReferral = async (req: Request, res: Response, next: NextFunc
     await sendReferralEmail(name, email, referredBy);
     res.status(201).json(referral);
   } catch (error: any) {
-    console.error("Error creating referral:", error); // Log the full error
     if (error.code === 'P2002' && error.meta?.target.includes('email')) {
       return next(errorHandler(409, "Email already exists"));
     } else {

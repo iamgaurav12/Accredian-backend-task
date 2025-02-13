@@ -18,7 +18,7 @@ Welcome to the backend service for the Refer & Earn application! This service ha
 
 1. **Clone the repository**
     ```bash
-    git clone https://github.com/Chandan8018/AccredianBackend.git
+    git clone https://github.com/iamgaurav12/Accredian-backend-task.git
     cd AccredianBackend
     ```
 
@@ -47,8 +47,25 @@ Welcome to the backend service for the Refer & Earn application! This service ha
     ```bash
     npm run dev
     ``` 
-    
-## Folder Structure
+
+7. **View Prisma Database**
+    ```bash
+    npx prisma studio
+    ```
+
+## 🧪 Testing
+
+1. **Run Unit Tests**
+    ```bash
+    npm run test
+    ```
+
+2. **Run Integration Tests**
+    ```bash
+    npm run test:integration
+    ```
+
+## 📂 Folder Structure
 
 ```sh
 .
@@ -58,24 +75,33 @@ Welcome to the backend service for the Refer & Earn application! This service ha
 │   ├── models
 │   ├── routes
 │   ├── services
-│   └── utils
+│   ├── utils
+│   └── index.ts
 ├── prisma
+│   ├── migrations
 │   └── schema.prisma
+├── tests
+│   ├── unit
+│   └── integration
 ├── .env
 ├── package.json
-└── tsconfig.json
+├── tsconfig.json
+└── README.md
 ```
 
-## Demo
-- Refer Notifiction Mail Page
-![Refer-Notifiction-Mail-Page](./image/mail.png)
+## 📸 Demo
+
+- Refer Notification Mail Page
+![Refer-Notification-Mail-Page](./image/mail.png)
+
 ---
 
-## Contact
+## 📞 Contact
+
 For any questions or inquiries, please contact:
 
-- Author: Chandan Kumar Sahoo
-- Email: chandankumarsahoo19@gmail.com
-- GitHub: https://github.com/Chandan8018/
+- Author: Gaurav Prakash
+- Email: prakashgaurav189@gmail.com
+- GitHub: [iamgaurav12](https://github.com/iamgaurav12)
 
 Feel free to reach out for any questions, suggestions, or contributions. Happy coding!

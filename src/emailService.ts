@@ -1,6 +1,6 @@
-import nodemailer from 'nodemailer';
-import dotenv from 'dotenv';
-import Mailgen from 'mailgen';
+import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+import Mailgen from "mailgen";
 
 dotenv.config();
 async function sendReferralEmail(
@@ -32,8 +32,7 @@ async function sendReferralEmail(
     let response = {
       body: {
         name: name,
-        intro:
-          "Welcome to Accredian! We're very excited to have you on board.",
+        intro: "Welcome to Accredian! We're very excited to have you on board.",
         table: {
           data: [
             {
@@ -64,18 +63,17 @@ async function sendReferralEmail(
     };
     let mail = MailGenerator.generate(response);
 
-     let message = {
-        from : "Accredian <admin@accredian.com>",
-        to : email,
-        subject: "Referral Received by " + referredBy,
-        html: mail
-    }
-    
+    let message = {
+      from: "Accredian <admin@accredian.com>",
+      to: email,
+      subject: "Referral Received by " + referredBy,
+      html: mail,
+    };
+
     const result = await transport.sendMail(message);
     return result;
   } catch (error: any) {
-    console.error("Error sending email:", error); // Log the full error details
     throw new Error("Error sending email");
-}
+  }
 }
 export { sendReferralEmail };
