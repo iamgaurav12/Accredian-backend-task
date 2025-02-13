@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import referralRoutes from "./routes/referral.route";
-
+const app = express();
 dotenv.config();
 import { PrismaClient } from "@prisma/client";
 
@@ -19,7 +19,7 @@ app.get("/api/test-db", async (req, res) => {
     }
 });
 
-const app = express();
+
 
 const allowedOrigins = [
     "https://accredian-frontend-task-9glo3v9iz-gaurav-prakashs-projects.vercel.app"
